@@ -11,8 +11,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ?>
+                    <!-- $sqli_prepare = $conn->prepare("SELECT id, vraag, optieA, optieB, optieC, correct_antwoord, img FROM TheorieToetsCBR WHERE id = " . $_GET["id"] . ";"); -->
  <?php
-                    $sqli_prepare = $conn->prepare("SELECT id, vraag, optieA, optieB, optieC, correct_antwoord, img FROM TheorieToetsCBR WHERE id = " . $_GET["id"] . ";");
+ $id = isset($_GET['id']) ? intval($_GET['id']) : 1;
+                    $sqli_prepare = $conn->prepare("SELECT id, vraag, optieA, optieB, optieC, correct_antwoord, img FROM TheorieToetsCBR WHERE id = ?");
                     if ($sqli_prepare === false) {
                         echo mysqli_error($conn);
                     } else{
@@ -74,17 +76,13 @@ if ($conn->connect_error) {
     $sqli_prepare->close();
 ?>
     <script>
-        // Function to handle the click event
-        document.getElementById('incrementDiv').addEventListener('click', function() {
-            // Get the current ID from the URL or any other source
-            let currentId = parseInt(window.location.search.substring(1)); // Assuming the ID is in the URL as a query parameter
-
-            // Increment the ID
-            let nextId = currentId + 1;
-
-            // Update the URL to navigate to the next ID
-            window.location.href = 'index.php?id=' + nextId; // Replace 'page.php' with your actual page name
-        });
+$id = isset($_GET['id']) ? intval($_GET['id']) : 1;
+document.getElementById('incrementDiv').addEventListener('click', function() {
+        let currentId = new URLSearchParams(window.location.search).get('id'); 
+        if (!currentId) currentId = 1;
+        let nextId = parseInt(currentId) + 1;
+        window.location.href = 'index.php?id=' + nextId; 
+    });
     </script>
 
 
