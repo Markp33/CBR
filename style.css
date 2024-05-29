@@ -58,6 +58,10 @@ body{
     background-color: rgb(255, 166, 0);
     color: white;
 }
+.vraag-a.clicked, .vraag-b.clicked, .vraag-c.clicked{
+    background-color: orange;
+    color: white;
+}
 .a, .b, .c{
     font-size: 75px;
 }

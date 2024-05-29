@@ -67,68 +67,26 @@
             </div>
         </div>
     </footer>
-    <div id="jsonData" class="container"></div>
 
     <script>
-        // The JSON data
-        const data = {
-            "id": "322",
-            "category": "J",
-            "type": "4",
-            "image": "gvr_286a.jpg",
-            "question": "Je rijdt 30 km/u. Wat doe je?",
-            "feedback": "De bestuurder voor je rijdt jouw weghelft op. Je hebt geen ruimte om uit te wijken. Aan de andere kant staat een busje geparkeerd.",
-            "options": [
-                "0",
-                "",
-                ""
-            ]
-        };
+document.addEventListener('DOMContentLoaded', (event) => {
+    const vraagA = document.querySelector('.vraag-a');
+    const vraagB = document.querySelector('.vraag-b');
+    const vraagC = document.querySelector('.vraag-c');
 
-        // Function to render the data
-        function renderData(data) {
-            const container = document.getElementById('jsonData');
+    vraagA.addEventListener('click', () => {
+        vraagA.classList.add('clicked');
+    });
 
-            // Create and append elements
-            const idElem = document.createElement('p');
-            idElem.innerHTML = `<strong>ID:</strong> ${data.id}`;
-            container.appendChild(idElem);
+    vraagB.addEventListener('click', () => {
+        vraagB.classList.add('clicked');
+    });
 
-            const categoryElem = document.createElement('p');
-            categoryElem.innerHTML = `<strong>Category:</strong> ${data.category}`;
-            container.appendChild(categoryElem);
+    vraagC.addEventListener('click', () => {
+        vraagC.classList.add('clicked');
+    });
+});
 
-            const typeElem = document.createElement('p');
-            typeElem.innerHTML = `<strong>Type:</strong> ${data.type}`;
-            container.appendChild(typeElem);
-
-            const imageElem = document.createElement('img');
-            imageElem.src = data.image;
-            imageElem.alt = 'Image';
-            imageElem.className = 'image';
-            container.appendChild(imageElem);
-
-            const questionElem = document.createElement('p');
-            questionElem.innerHTML = `<strong>Question:</strong> ${data.question}`;
-            container.appendChild(questionElem);
-
-            const feedbackElem = document.createElement('p');
-            feedbackElem.innerHTML = `<strong>Feedback:</strong> ${data.feedback}`;
-            feedbackElem.className = 'feedback';
-            container.appendChild(feedbackElem);
-
-            const optionsElem = document.createElement('ul');
-            optionsElem.innerHTML = `<strong>Options:</strong>`;
-            data.options.forEach(option => {
-                const optionItem = document.createElement('li');
-                optionItem.textContent = option ? option : '(empty)';
-                optionsElem.appendChild(optionItem);
-            });
-            container.appendChild(optionsElem);
-        }
-
-        // Render the JSON data
-        renderData(data);
     </script>
 </body>
 </html>
