@@ -12,16 +12,25 @@ body{
     height: 100px;
     background-color: rgb(75, 165, 227);
 }
+.topbar-flex, .footer-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cbr{
+    font-size: 60px;
+    margin-top: 20px;
+    color: white;
+}
 .flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.vragen-container{
+#vragen-container{
     width: 700px;
     height: 650px;
     margin-top:120px;
-    margin-right: 100px;
 }
 .titel{
     font-size: 50px;
@@ -59,10 +68,15 @@ body{
     color: orange;
 }
 .gap{
-    height: 180px;
+    height: 190px;
 }
 .footer{
     width: 100%;
     height: 100px;
     background-color: rgb(75, 165, 227);
+}
+.copyright{
+    font-size: 15px;
+    margin-top: 50px;
+    color: white;
 }
