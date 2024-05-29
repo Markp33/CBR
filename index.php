@@ -11,10 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ?>
-                    <!-- $sqli_prepare = $conn->prepare("SELECT id, vraag, optieA, optieB, optieC, correct_antwoord, img FROM TheorieToetsCBR WHERE id = " . $_GET["id"] . ";"); -->
  <?php
- $id = isset($_GET['id']) ? intval($_GET['id']) : 1;
-                    $sqli_prepare = $conn->prepare("SELECT id, vraag, optieA, optieB, optieC, correct_antwoord, img FROM TheorieToetsCBR WHERE id = ?");
+                    $sqli_prepare = $conn->prepare("SELECT id, vraag, optieA, optieB, optieC, correct_antwoord, img FROM TheorieToetsCBR WHERE id = " . $_GET["id"] . ";");
                     if ($sqli_prepare === false) {
                         echo mysqli_error($conn);
                     } else{
@@ -34,30 +32,30 @@ if ($conn->connect_error) {
             <div class="img-box">
                 <img src="<?=$img?>" alt="logo" style="width: 700px; height: 700px; margin-left: 100px; margin-top: 50px;">
             </div>
-            <div id="vragen-container" class="hide">
+            <div id="vragen-container">
                 <div class="titel"><?= $vraag ?></div>
-                    <div class="vraag-a">
-                        <div class="flex-box">
-                            <div class="a"><?=$optieA ?></div>
-                        </div>
+                <div class="vraag-a">
+                    <div class="flex-box">
+                        <div class="a"><?=$optieA ?></div>
                     </div>
-                    <div class="vraag-b">
-                        <div class="flex-box">                        
-                            <div class="b"><?= $optieB ?></div>
-                        </div>
+                </div>
+                <div class="vraag-b">
+                    <div class="flex-box">                        
+                        <div class="b"><?= $optieB ?></div>
                     </div>
-                    <div class="vraag-c">
-                        <div class="flex-box">                     
-                            <div class="c"><?=$optieC ?></div>
-                        </div>
+                </div>
+                <div class="vraag-c">
+                    <div class="flex-box">                     
+                        <div class="c"><?=$optieC ?></div>
                     </div>
-                    <div class="volgende-vraag">
-                        <div class="flex">
-                            <i class="fa fa-caret-square-o-left" aria-hidden="true" style="font-size: 100px; cursor: pointer;"></i>
-                            <div class="volgende-tekst">naar volgende vraag gaan</div>
-                            <i id="incrementDiv" class="fa fa-caret-square-o-right" aria-hidden="true" style="font-size: 100px; margin-right: 150px; cursor: pointer;"></i>
-                        </div>
+                </div>
+                <div class="volgende-vraag">
+                    <div class="flex">
+                        <i class="fa fa-caret-square-o-left" aria-hidden="true" style="font-size: 100px; cursor: pointer;"></i>
+                        <div class="volgende-tekst">naar volgende vraag gaan</div>
+                        <i id="incrementDiv" class="fa fa-caret-square-o-right" aria-hidden="true" style="font-size: 100px; margin-right: 150px; cursor: pointer;"></i>
                     </div>
+                </div>
             </div>
         </div>
     </main>
@@ -69,22 +67,25 @@ if ($conn->connect_error) {
             </div>
         </div>
     </footer>
-                <?php 
-            }
+    <script>
+        // Function to handle the click event
+        document.getElementById('incrementDiv').addEventListener('click', function() {
+            // Get the current ID from the URL or any other source
+            let currentId = parseInt(window.location.search.substring(1)); // Assuming the ID is in the URL as a query parameter
+
+            // Increment the ID
+            let nextId = currentId + 1;
+
+            // Update the URL to navigate to the next ID
+            window.location.href = 'index.php?id=' + nextId; // Replace 'page.php' with your actual page name
+        });
+    </script>
+</body>
+</html>
+<?php 
         }
     }
     $sqli_prepare->close();
+}
+$conn->close();
 ?>
-    <script>
-$id = isset($_GET['id']) ? intval($_GET['id']) : 1;
-document.getElementById('incrementDiv').addEventListener('click', function() {
-        let currentId = new URLSearchParams(window.location.search).get('id'); 
-        if (!currentId) currentId = 1;
-        let nextId = parseInt(currentId) + 1;
-        window.location.href = 'index.php?id=' + nextId; 
-    });
-    </script>
-
-
-</body>
-</html>
