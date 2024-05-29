@@ -13,7 +13,11 @@
 </head>
 <body>
     <header>
-        <div class="topbar"></div>
+        <div class="topbar">
+            <div class="topbar-flex">
+                <div class="cbr">CBR Theorie Toets</div>
+            </div>
+        </div>
     </header>
     <main>
         <div class="flex">
@@ -49,6 +53,7 @@
                     <div class="volgende-vraag">
                         <div class="flex">
                             <i class="fa fa-caret-square-o-left" aria-hidden="true" style="font-size: 100px; cursor: pointer;"></i>
+                            <div class="volgende-tekst">naar volgende vraag gaan</div>
                             <i class="fa fa-caret-square-o-right" aria-hidden="true" style="font-size: 100px; margin-right: 150px; cursor: pointer;"></i>
                         </div>
                     </div>
@@ -59,6 +64,33 @@
     <footer>
         <div class="footer"></div>
      
+=======
+        <div class="footer">
+            <div class="footer-flex">
+                <div class="copyright">© 2024-2024 CBR</div>
+            </div>
+        </div>
     </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const vraagA = document.querySelector('.vraag-a');
+    const vraagB = document.querySelector('.vraag-b');
+    const vraagC = document.querySelector('.vraag-c');
+
+    vraagA.addEventListener('click', () => {
+        vraagA.classList.add('clicked');
+    });
+
+    vraagB.addEventListener('click', () => {
+        vraagB.classList.add('clicked');
+    });
+
+    vraagC.addEventListener('click', () => {
+        vraagC.classList.add('clicked');
+    });
+});
+
+    </script>
 </body>
 </html>
