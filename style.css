@@ -69,7 +69,7 @@ body{
     margin-top: 50px;
 }
 .fa-caret-square-o-left:hover, .fa-caret-square-o-right:hover{
-    color: orange;
+    color: rgb(75, 165, 227);
 }
 .gap{
     height: 190px;
