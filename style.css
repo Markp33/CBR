@@ -1,68 +1,82 @@
-* {
+*{
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
-}
-body{
-    margin: 0;
-    padding: 0;
-}
-.topbar{
-    width: 100%;
-    height: 100px;
-    background-color: rgb(75, 165, 227);
-}
-.flex{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.vragen-container{
-    width: 700px;
-    height: 650px;
-    margin-top:120px;
-    margin-right: 100px;
-}
-.titel{
-    font-size: 50px;
-    border: solid black;
-    padding: 15px;
-    width: 550px;
-    height: 60px;
-    cursor: default;
-}
-.flex-box{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 120px;
-    margin-left: 50px;
-}
-.vraag-a, .vraag-b, .vraag-c{
-    width: 550px;
-    height: 80px;
-    border: solid black 2px;
-    margin-top: 30px;
-    cursor: pointer;
-}
-.vraag-a:hover, .vraag-b:hover, .vraag-c:hover{
-    background-color: rgb(255, 166, 0);
-    color: white;
-}
-.a, .b, .c{
-    font-size: 75px;
-}
-.volgende-vraag{
-    margin-top: 50px;
-}
-.fa-caret-square-o-left:hover, .fa-caret-square-o-right:hover{
-    color: orange;
-}
-.gap{
-    height: 180px;
-}
-.footer{
-    width: 100%;
-    height: 100px;
-    background-color: rgb(75, 165, 227);
-}
+  }
+  body{
+      margin: 0;
+      padding: 0;
+  }
+  .topbar{
+      width: 100%;
+      height: 100px;
+      background-color: rgb(75, 165, 227);
+  }
+  .topbar-flex, .footer-flex{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .cbr{
+      font-size: 60px;
+      margin-top: 20px;
+      color: white;
+  }
+  .flex{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  #vragen-container{
+      width: 700px;
+      height: 650px;
+      margin-top:120px;
+  }
+  .titel{
+      font-size: 50px;
+      border: solid black;
+      padding: 15px;
+      width: 550px;
+      height: 60px;
+      cursor: default;
+  }
+  .flex-box{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 120px;
+      margin-left: 50px;
+  }
+  .vraag-a, .vraag-b, .vraag-c{
+      width: 550px;
+      height: 80px;
+      border: solid black 2px;
+      margin-top: 30px;
+      cursor: pointer;
+  }
+  .vraag-a:hover, .vraag-b:hover, .vraag-c:hover{
+      background-color: rgb(255, 166, 0);
+      color: white;
+  }
+  .a, .b, .c{
+      font-size: 75px;
+  }
+  .volgende-vraag{
+      margin-top: 50px;
+  }
+  .fa-caret-square-o-left:hover, .fa-caret-square-o-right:hover{
+      color: orange;
+  }
+  .gap{
+      height: 190px;
+  }
+  .footer{
+      width: 100%;
+      height: 100px;
+      background-color: rgb(75, 165, 227);
+  }
+  .copyright{
+      font-size: 15px;
+      margin-top: 50px;
+      color: white;
+  }
