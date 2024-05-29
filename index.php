@@ -47,7 +47,7 @@ $conn->close();
                 <img src="./test.jpg" alt="logo" style="width: 700px; height: 700px; margin-left: 100px; margin-top: 50px;">
             </div>
             <div id="vragen-container" class="hide">
-                <div class="titel"><?= $row["vraag"] ?></div>
+                <div class="titel"><?php echo "$"?></div>
                     <div class="vraag-a">
                         <div class="flex-box">
                             <div class="check">
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             <th>Correct Antwoord</th>
         </tr>
         <?php
-        // Output data of each row
+       
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo "<tr>";
