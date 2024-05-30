@@ -19,13 +19,15 @@ body{
 }
 .cbr{
     font-size: 60px;
-    margin-top: 20px;
     color: white;
 }
 .flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.img{
+    width: 700px; height: 700px; margin-left: 100px; margin-top: 50px;
 }
 #vragen-container{
     width: 700px;
@@ -69,6 +71,20 @@ body{
 .volgende-vraag{
     margin-top: 50px;
 }
+.flex-kies{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fa-caret-square-o-left{
+    font-size: 100px !important; 
+    cursor: pointer;
+} 
+.fa-caret-square-o-right{
+    font-size: 100px !important; 
+    margin-right: 150px; cursor: pointer;
+    
+}
 .fa-caret-square-o-left:hover, .fa-caret-square-o-right:hover{
     color: rgb(75, 165, 227);
 }
@@ -84,4 +100,64 @@ body{
     font-size: 15px;
     margin-top: 50px;
     color: white;
+}
+@media (max-width: 1520px){
+    .flex{
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-box{
+        margin-left: 0px;
+    }
+    .img{
+        margin-left: 0px;
+    }
+    #vragen-container{
+        margin-left: 100px;
+    }
+}
+@media (max-width: 818px){
+    .img{
+        width: 500px;
+        height: 500px;
+    }
+}
+@media (max-width: 841px){
+    .titel{
+        font-size: 20px;
+        width: 400px;
+    }
+    #vragen-container{
+        margin-top: 0px;
+        margin-left: 0px;
+        width: 500px;
+        height: 500px;
+    }
+    .vraag-a, .vraag-b, .vraag-c{
+        width: 350px;
+        height: 70px;  
+    }
+}
+@media (max-width: 573px){
+    .cbr{
+        font-size: 50px;
+    }
+    .img{
+        width: 350px;
+        height: 350px;
+    }
+    .titel{
+        font-size: 18px;
+        width: 320px;
+    }
+}
+@media (max-width: 522px){
+    #vragen-container{
+        margin-right: 150px;
+        width: 200px;
+    }
+    .cbr{
+        font-size: 30px;
+    }
+
 }
