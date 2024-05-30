@@ -11,7 +11,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
 $id = isset($_GET['id']) ? intval($_GET['id']) : 1;
 
 $sqli_prepare = $conn->prepare("SELECT id, vraag, optieA, optieB, optieC, correct_antwoord, img FROM TheorieToetsCBR WHERE id = ?");
@@ -24,8 +23,14 @@ if ($sqli_prepare === false) {
         $sqli_prepare->bind_result($id, $vraag, $optieA, $optieB, $optieC, $correct, $img);
         while($sqli_prepare->fetch()) {
 ?>
-﻿
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CBR Theorie Toets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <header>
         <div class="topbar">
             <div class="topbar-flex">
@@ -36,30 +41,33 @@ if ($sqli_prepare === false) {
     <main>
         <div class="flex">
             <div class="img-box">
-                <img class="img"src="<?=$img?>" alt="logo">
+                <img src="<?=$img?>" alt="logo" style="width: 700px; height: 700px; margin-left: 100px; margin-top: 50px;">
             </div>
             <div id="vragen-container">
                 <div class="titel"><?= $vraag ?></div>
                 <div class="vraag-a">
                     <div class="flex-box">
-                        <div class="a"><?=$optieA ?></div>
+                        <input type="radio" name="answer" value="A" id="optieA">
+                        <label for="optieA"><?=$optieA ?></label>
                     </div>
                 </div>
                 <div class="vraag-b">
                     <div class="flex-box">                        
-                        <div class="b"><?= $optieB ?></div>
+                        <input type="radio" name="answer" value="B" id="optieB">
+                        <label for="optieB"><?= $optieB ?></label>
                     </div>
                 </div>
                 <div class="vraag-c">
                     <div class="flex-box">                     
-                        <div class="c"><?=$optieC ?></div>
+                        <input type="radio" name="answer" value="C" id="optieC">
+                        <label for="optieC"><?=$optieC ?></label>
                     </div>
                 </div>
                 <div class="volgende-vraag">
-                    <div class="flex-kies">
-                        <i id="incrementDivmin" class="fa fa-caret-square-o-left" aria-hidden="true"></i>
+                    <div class="flex">
+                        <i class="fa fa-caret-square-o-left" aria-hidden="true" style="font-size: 100px; cursor: pointer;"></i>
                         <div class="volgende-tekst">naar volgende vraag gaan</div>
-                        <i id="incrementDiv" class="fa fa-caret-square-o-right" aria-hidden="true" ></i>
+                        <i id="incrementDiv" class="fa fa-caret-square-o-right" aria-hidden="true" style="font-size: 100px; margin-right: 150px; cursor: pointer;"></i>
                     </div>
                 </div>
             </div>
@@ -74,18 +82,28 @@ if ($sqli_prepare === false) {
         </div>
     </footer>
     <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const vraagA = document.querySelector('.vraag-a');
+        const vraagB = document.querySelector('.vraag-b');
+        const vraagC = document.querySelector('.vraag-c');
 
+        vraagA.addEventListener('click', () => {
+            vraagA.classList.add('clicked');
+        });
+
+        vraagB.addEventListener('click', () => {
+            vraagB.classList.add('clicked');
+        });
+
+        vraagC.addEventListener('click', () => {
+            vraagC.classList.add('clicked');
+        });
+    });
 
     document.getElementById('incrementDiv').addEventListener('click', function() {
         let currentId = new URLSearchParams(window.location.search).get('id'); 
         if (!currentId) currentId = 1;
         let nextId = parseInt(currentId) + 1;
-        window.location.href = 'index.php?id=' + nextId; 
-    });
-    document.getElementById('incrementDivmin').addEventListener('click', function() {
-        let currentId = new URLSearchParams(window.location.search).get('id'); 
-        if (!currentId) currentId = 1;
-        let nextId = parseInt(currentId) - 1;
         window.location.href = 'index.php?id=' + nextId; 
     });
     </script>
